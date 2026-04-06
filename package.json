@@ -1,0 +1,42 @@
+{
+  "name": "pi-skill-catalog",
+  "version": "0.1.0",
+  "description": "Pi extension for skill observability and loaded-skill inspection",
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "pi-coding-agent",
+    "skills"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mamachanko/pi-skill-catalog.git"
+  },
+  "homepage": "https://github.com/mamachanko/pi-skill-catalog#readme",
+  "bugs": {
+    "url": "https://github.com/mamachanko/pi-skill-catalog/issues"
+  },
+  "files": [
+    "skill-catalog.ts",
+    "README.md",
+    "LICENSE",
+    "AGENTS.md"
+  ],
+  "pi": {
+    "extensions": [
+      "./skill-catalog.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-tui": "*"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

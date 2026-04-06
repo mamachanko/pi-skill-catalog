@@ -1,4 +1,4 @@
-# pi-skills-catalog
+# pi-skill-catalog
 
 A Pi extension for skill observability.
 
@@ -35,7 +35,27 @@ On startup, the extension renders a `Skills` block that shows:
 
 After the first input event, the startup block is removed.
 
-## Installation
+## Install
+
+### From npm
+
+```bash
+pi install npm:pi-skill-catalog
+```
+
+### From git
+
+```bash
+pi install git:github.com/mamachanko/pi-skill-catalog
+```
+
+### From a local checkout
+
+```bash
+pi install /absolute/path/to/pi-skill-catalog
+```
+
+## Development install
 
 Copy or symlink `skill-catalog.ts` into the active Pi extensions directory.
 
@@ -56,9 +76,40 @@ Then reload Pi:
 /reload
 ```
 
+## Publish to npm
+
+The conventional setup here is:
+
+- publish an npm package named `pi-skill-catalog`
+- include a `pi` manifest in `package.json`
+- publish on version tags through GitHub Actions
+- use npm trusted publishing for the workflow
+
+### One-time setup
+
+1. Create the package on npm under the account that should own it.
+2. In npm, configure this repository as a trusted publisher for the package.
+3. In GitHub, keep the publish workflow enabled.
+
+### Release flow
+
+1. Bump `package.json` version.
+2. Commit the version change.
+3. Create and push a matching git tag:
+
+```bash
+git tag v0.1.0
+git push origin main --tags
+```
+
+4. GitHub Actions runs `.github/workflows/publish.yml`.
+5. The workflow verifies the tarball with `npm pack --dry-run` and publishes to npm.
+
 ## Repository contents
 
 - `skill-catalog.ts` — the extension
+- `package.json` — npm package metadata and Pi manifest
+- `.github/workflows/publish.yml` — npm publish workflow
 - `AGENTS.md` — repository-specific guidance
 
 ## Development notes
